@@ -2,20 +2,34 @@
 function fizzbuzz() {
     console.log("Hello, world!")
 
-    // Code goes here...
-    for (let i = 1; i <= 100; i++) {
-        var result = "";
+    
+    for (let i = 1; i <= 150; i++) {
+        var words = [];
         if (i % 3 == 0) {
-            result += "Fizz";
+            words.push("Fizz");
         }
         if (i % 5 == 0) {
-            result += "Buzz";
+            words.push("Buzz");
         }
-        if (result == "") {
-            result = i;
+        if (i % 7 == 0) {
+            words.push("Bang");
+        }
+        if (i % 11 == 0) {
+            words = ["Bong"];
+        }
+        if (i % 13 == 0) {
+            for (let i = 0; i < words.length; i++) {
+                if (words[i][0] == 'B') {
+                    words[i] = "Fezz" + words[i];
+                    break;
+                }
+            }
+        }
+        if (words.length == 0) {
+            words.push(i);
         }
 
-        console.log(result);
+        console.log(i % 17 == 0 ? words.reverse().join("") : words.join(""));
     }
 }
 
